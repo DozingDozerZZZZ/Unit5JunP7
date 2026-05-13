@@ -13,14 +13,19 @@ public class Target : MonoBehaviour
     public ParticleSystem explosionParticle;
     private GameManager gameManager;
 
+   
+
     public int pointValue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         targetRb = GetComponent<Rigidbody>();
+
+       
 
         targetRb.AddForce(RandomForce(),ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(),RandomTorque(),RandomTorque(),ForceMode.Impulse);
@@ -54,15 +59,13 @@ public class Target : MonoBehaviour
     {
         Destroy(gameObject);
 
-        if (!gameObject.CompareTag("Bad"))
+        if (!gameObject.CompareTag("Bad") && gameManager.isGameActive)
         {
-            gameManager.GameOver();
+            gameManager.UpdateScore(-1);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+   
         
-    }
+   
 }
