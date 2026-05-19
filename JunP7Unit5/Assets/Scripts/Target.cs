@@ -13,7 +13,9 @@ public class Target : MonoBehaviour
     public ParticleSystem explosionParticle;
     private GameManager gameManager;
 
-   
+    AudioSource audioSource;
+    public AudioClip Good;
+    public AudioClip Bad;
 
     public int pointValue;
 
@@ -25,7 +27,7 @@ public class Target : MonoBehaviour
 
         targetRb = GetComponent<Rigidbody>();
 
-       
+        audioSource = GetComponent<AudioSource>();
 
         targetRb.AddForce(RandomForce(),ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(),RandomTorque(),RandomTorque(),ForceMode.Impulse);
@@ -53,6 +55,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(pointValue);
+            PlaySound(Good);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -61,11 +64,12 @@ public class Target : MonoBehaviour
 
         if (!gameObject.CompareTag("Bad") && gameManager.isGameActive)
         {
-            gameManager.UpdateScore(-1);
+            gameManager.UpdateLives(-1);
+            PlaySound(Bad);
         }
     }
-
-   
-        
-   
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 }
