@@ -1,7 +1,8 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
     private bool paused;
 
 
-    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
@@ -105,6 +105,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+  
 
-    
 }

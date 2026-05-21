@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionParticle: {fileID: 7535607469619513247, guid: ac10190cf200c4f7e881ca8e41d3d760, type: 3}
-  Good: {fileID: 8300000, guid: a1ed73e076c57b747a1142ee0452ecc7, type: 3}
-  Bad: {fileID: 0}
+  Good: {fileID: 0}
+  Bad: {fileID: 8300000, guid: a1ed73e076c57b747a1142ee0452ecc7, type: 3}
   pointValue: -10
 --- !u!82 &-7958646873691030184
 AudioSource:

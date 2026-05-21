@@ -52,10 +52,10 @@ public class Target : MonoBehaviour
     {
         if(gameManager.isGameActive)
         {
+            PlaySound(Good);
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(pointValue);
-            PlaySound(Good);
         }
     }
     private void OnTriggerEnter(Collider other)
